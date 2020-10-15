@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.dao.FriendLinkDao">
+
+    <resultMap id="friendLinks" type="FriendLink">
+        <id property="id" column="id"/>
+        <result property="blogAddress" column="blog_address"/>
+        <result property="blogName" column="blog_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="pictureAddress" column="picture_address"/>
+    </resultMap>
+
+    <select id="getFriendsList" resultMap="friendLinks">
+        select *
+        from t_friend f
+        order by f.create_time desc
+    </select>
+
+    <select id="getFriendLink" resultMap="friendLinks">
+        select *
+        from t_friend f
+        where f.id = #{id}
+    </select>
+
+    <insert id="saveFriendLink" parameterType="FriendLink">
+        insert into t_friend (blog_address, blog_name, create_time, picture_address)
+        values (#{blogAddress}, #{blogName}, #{createTime}, #{pictureAddress});
+    </insert>
+
+    <update id="updateFriendLink" parameterType="FriendLink">
+        update t_friend
+        set blog_address=#{blogAddress},
+            blog_name=#{blogName},
+            picture_address=#{pictureAddress}
+        where id = #{id}
+    </update>
+
+    <delete id="deleteFriendLink">
+        delete
+        from t_friend
+        where id = #{id}
+    </delete>
+
+</mapper>

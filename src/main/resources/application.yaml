@@ -1,0 +1,24 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+
+comment.avatar: /images/avatar2.jpg
+message.avatar: /images/avatar2.jpg
+
+
+mvc:
+  hiddenmethod:
+    filter:
+      enabled: true
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.wx.pojo
+
+#server:
+#  port: 443
+#  ssl:
+#    key-store: 4451865_www.xnpng.top.pfx
+#    key-store-password: 7Dv8j4NP

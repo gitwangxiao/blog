@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wx.dao.MessageDao">
+
+
+    <resultMap id="message" type="Message">
+        <id property="id" column="cid"/>
+        <result property="nickname" column="nickname"/>
+        <result property="email" column="email"/>
+        <result property="content" column="content"/>
+        <result property="adminMessage" column="admin_message"/>
+        <result property="avatar" column="avatar"/>
+        <result property="createTime" column="create_time"/>
+        <result property="parentMessageId" column="parent_message_id"/>
+    </resultMap>
+
+    <insert id="saveMessage" parameterType="com.wx.pojo.Message">
+        insert into t_message (nickname,email,content,avatar,create_time,parent_message_id,admin_message)
+        values (#{nickname},#{email},#{content},#{avatar},#{createTime},#{parentMessageId},#{adminMessage});
+    </insert>
+
+
+    <select id="findByBlogIdParentIdNull" resultMap="message">
+        select c.id cid,c.avatar,c.nickname,c.content,c.admin_message,c.create_time,c.email,c.parent_message_id
+        from t_message c
+        where c.parent_message_id = #{blogParentId}
+        order by c.create_time desc
+    </select>
+
+<!--查询一级子评论-->
+    <select id="findByBlogIdParentIdNotNull" resultMap="message">
+        select c.id cid, nickname, email, content, avatar, create_time, parent_message_id, admin_message
+        from t_message c
+        where c.parent_message_id = #{id}
+        order by c.create_time desc
+    </select>
+
+    <!--查询二级子评论-->
+    <select id="findByBlogIdAndReplayId" resultMap="message">
+        select c.id cid, nickname, email, content, avatar, create_time, parent_message_id, admin_message
+        from t_message c
+        where c.parent_message_id = #{childId}
+        order by c.create_time desc
+    </select>
+
+    <select id="findByParentMessageId" resultMap="message">
+        select c.id cid,c.nickname,c.email,c.content,c.avatar,c.create_time,c.parent_message_id
+        from blog.t_message c
+        where c.parent_message_id = #{parentMessageId}
+    </select>
+
+    <!--删除评论-->
+    <delete id="deleteMessage" >
+        delete from t_message where id = #{id}
+    </delete>
+
+    <select id="getMessageCount">
+        select count(0)
+        from t_message
+    </select>
+
+
+</mapper>

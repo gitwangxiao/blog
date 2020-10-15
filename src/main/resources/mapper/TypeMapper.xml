@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wx.dao.TypeDao">
+
+    <insert id="saveType" parameterType="type">
+        insert into t_type values (#{id},#{name})
+    </insert>
+
+    <select id="getType" parameterType="long" resultType="type">
+        select * from t_type
+            where id = #{id}
+    </select>
+
+    <select id="getTypeByName" resultType="type" parameterType="String">
+        select * from t_type
+            where name=#{name}
+    </select>
+
+    <select id="getAllType" resultType="type">
+        select * from t_type
+    </select>
+
+    <update id="updateType" parameterType="type">
+        update t_type set name=#{name} where id=#{id}
+    </update>
+
+    <delete id="deleteType" parameterType="long">
+        delete from t_type where id=#{id}
+    </delete>
+
+    <resultMap id="type" type="Type">
+        <id property="id" column="tid"/>
+        <result property="name" column="name"/>
+        <collection property="blogs" ofType="Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="typeId" column="type_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="getIndexType" resultMap="type">
+        select t.id tid, t.name, b.id bid, b.title, b.type_id
+        from t_type t, t_blog b
+        where t.id = b.type_id
+        and b.published = 1
+    </select>
+
+</mapper>

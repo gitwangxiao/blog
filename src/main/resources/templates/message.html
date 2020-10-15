@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <title>留言板</title>
+</head>
+<!--透明度舍弃body标签中的设置，因为会造成悬浮条无法固定在屏幕上；所以将透明度准确加在div上-->
+<body>
+<!--导航-->
+<!--ui 是采用semantic的标记，inverted表示反转,这里将本来是白色的填充变为黑色，
+segment表示片段，后面的m-padded-tb-mini是自己写的css样式，写在class中所以是类选择器-->
+<nav th:replace="_fragments :: menu(5)" class="ui attached segment m-padded-tb-mini m-shadow-small animated fadeInDown">
+</nav>
+
+<!--中间内容-->
+<!--中间内容-->
+<div id="waypoint" class="m-margin- animated fadeIn">
+    <div class="ui container box-shadow-max">
+        <br>
+        <br>
+        <div class="ui segment m-div-bg">
+            <h2 class="ui m-color-text dividing header">留言</h2>
+            <!--                新增留言-->
+            <div id="message-form" class="ui form">
+                <input type="hidden" name="parentMessage.id" value="-1">
+                <!--                    留言区-->
+                <div class="field">
+                    <textarea name="content" placeholder="请输入留言信息..."></textarea>
+                </div>
+                <div class="ui grid">
+                    <!--                    输入姓名-->
+                    <div class="five wide column">
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="nickname" placeholder="昵称"
+                                       th:value="${session.user}!=null ? ${session.user.nickname}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--输入邮箱-->
+                    <div class="five wide column">
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input type="text" name="email" placeholder="邮箱"
+                                       th:value="${session.user}!=null ? ${session.user.email}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right aligned six wide column">
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <button id="messagepost-btn" type="button" class="ui green button m-mobile-wide"><i
+                                    class="edit icon"></i>发布
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--留言区-->
+            <div class="ui bottom attached m-margin-top">
+                <div id="message-container" class="ui blue segment">
+                    <div th:fragment="messageList">
+                        <div class="ui threaded comments" style="max-width: 100%;">
+
+
+                            <div class="comment" th:each="message : ${messages}">
+                                <a class="avatar">
+                                    <img src="../static/image/me.jpg" th:src="@{${message.avatar}}">
+                                </a>
+                                <div class="content">
+                                    <a class="author">
+                                        <span class="m-opacity" th:text="${message.nickname}">Matt</span>
+                                        <div class="ui mini basic blue left pointing label m-padded-mini"
+                                             th:if="${message.adminMessage}">栈主
+                                        </div>
+                                    </a>
+                                    <div class="metadata">
+                                    <span class="date"
+                                          th:text="${#dates.format(message.createTime,'yyyy-MM-dd HH:mm')}">今天下午 5:42</span>
+                                    </div>
+                                    <div class="text m-text-spaced" th:text="${message.content}">太赞了！</div>
+                                    <div class="actions">
+                                        <a class="reply m-green" data-messageid="1" data-messagenickname="Matt"
+                                           th:attr="data-messageid=${message.id},data-messagenickname=${message.nickname}"
+                                           onclick="reply(this)">回复</a>
+                                        <a class="delete m-red" href="#" th:href="@{/messages/{id}/delete(id=${message.id})}"
+                                           onclick="return confirm('确定要删除该评论吗？三思啊! 删了可就没了！')"
+                                           th:if="${session.user}">删除</a>
+                                    </div>
+                                </div>
+                                <!--子集留言-->
+                                <div class="comments" th:if="${#arrays.length(message.replyMessages)}>0">
+                                    <div class="comment" th:each="reply : ${message.replyMessages}">
+                                        <a class="avatar">
+                                            <img src="../static/image/me.jpg" th:src="@{${reply.avatar}}">
+                                        </a>
+                                        <div class="content">
+                                            <a class="author">
+                                                <span class="m-opacity" th:text="${reply.nickname}">小红</span>
+                                                <div class="ui mini basic blue left pointing label m-padded-mini"
+                                                     th:if="${reply.adminMessage}">栈主
+                                                </div>
+                                                &nbsp;<span  th:text="|@ ${reply.parentNickname}|"
+                                                            class="m-blue m-opacity">@ 小白</span>
+                                            </a>
+                                            <div class="metadata">
+                                            <span class="date"
+                                                  th:text="${#dates.format(reply.createTime,'yyyy-MM-dd HH:mm')}">今天下午 5:42</span>
+                                            </div>
+                                            <div class="text m-text-spaced" th:text="${reply.content}">太赞了！</div>
+                                            <div class="actions">
+                                                <a class="reply m-green" data-messageid="1" data-messagenickname="Matt"
+                                                   th:attr="data-messageid=${reply.id},data-messagenickname=${reply.nickname}"
+                                                   onclick="reply(this)">回复</a>
+                                                <a class="delete m-red" href="#"
+                                                   th:href="@{/messages/{id}/delete(id=${reply.id})}"
+                                                   onclick="return confirm('确定要删除该评论吗？三思啊! 删了可就没了！')"
+                                                   th:if="${session.user}">删除</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+        </div>
+    </div>
+</div>
+
+
+<div id="toolbar" class="m-fixed m-padded m-right-bottom" style="display: none">
+    <div class="ui vertical icon buttons ">
+        <div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
+    </div>
+</div>
+
+<div id="aplayer" class="aplayer m-span"  data-id="424369768" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+
+<br>
+<br>
+<!--底部-->
+<!--vertical表示把圆角的元素变为直角的-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-big ">
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<!--/*/</th:block>/*/-->
+
+<!--在标签中加了menu toggle属性用来获取操作-->
+<script th:inline="javascript">
+
+    // $('#newblog-container').load(/*[[@{/footer/newblog}]]*/"/footer/newblog");
+
+    $('#blog-message').load(/*[[@{/footer/blogmessage}]]*/"/footer/blogmessage");
+
+    // 把手机端的菜单隐藏起来
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+
+    //回到顶部，时间是为了平滑滚动
+    $('#toTop-button').click(function () {
+        $(window).scrollTo(0, 500);
+    });
+
+
+    //评论表单验证
+    $('.ui.form').form({
+        fields: {
+            title: {
+                identifier: 'content',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入评论内容'
+                }
+                ]
+            },
+            content: {
+                identifier: 'nickname',
+                rules: [{
+                    type: 'empty',
+                    prompt: '请输入你的大名'
+                }]
+            },
+            type: {
+                identifier: 'email',
+                rules: [{
+                    type: 'email',
+                    prompt: '请填写正确的邮箱地址'
+                }]
+            }
+        }
+    });
+
+    $(function () {
+        $("#message-container").load(/*[[@{/messages}]]*/"messages");
+    });
+
+
+    $('#messagepost-btn').click(function () {
+        var boo = $('.ui.form').form('validate form');
+        if (boo) {
+            console.log('校验成功');
+            postData();
+        } else {
+            console.log('校验失败');
+        }
+    });
+
+    function postData() {
+        $("#message-container").load(/*[[@{/message}]]*/"", {
+            "parentMessage.id": $("[name='parentMessage.id']").val(),
+            "nickname": $("[name='nickname']").val(),
+            "email": $("[name='email']").val(),
+            "content": $("[name='content']").val()
+        }, function (responseTxt, statusTxt, xhr) {
+            // $(window).scrollTo($('#goto'), 500);
+            clearContent();
+        });
+    }
+
+    function clearContent() {
+        $("[name='nickname']").val('');
+        $("[name='email']").val('');
+        $("[name='content']").val('');
+        $("[name='parentMessage.id']").val(-1);
+        $("[name='content']").attr("placeholder", "请输入评论信息...");
+    }
+
+    function reply(obj) {
+        var messageId = $(obj).data('messageid');
+        var messageNickname = $(obj).data('messagenickname');
+        $("[name='content']").attr("placeholder", "@" + messageNickname).focus();
+        $("[name='parentMessage.id']").val(messageId);
+        $(window).scrollTo(0,500);
+    }
+
+</script>
+</body>
+</html>

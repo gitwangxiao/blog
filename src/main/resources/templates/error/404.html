@@ -1,0 +1,94 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">-->
+<!--<head th:replace="_fragments::head(~{::title})">-->
+<!--    <meta charset="UTF-8">-->
+<!--    &lt;!&ndash;移动端预览&ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>error</title>-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">-->
+<!--    <link rel="stylesheet" href="../../static/css/me.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--&lt;!&ndash;导航&ndash;&gt;-->
+<!--&lt;!&ndash;ui 是采用semantic的标记，inverted表示反转,这里将本来是白色的填充变为黑色，-->
+<!--segment表示片段，后面的m-padded-tb-mini是自己写的css样式，写在class中所以是类选择器&ndash;&gt;-->
+<!--<nav th:replace="_fragments :: menu(0)" class="ui attached segment m-padded-tb-mini m-shadow-small m-bg animated fadeInDown">-->
+<!--    &lt;!&ndash;    container是semantic里面的一个容器组件，他是响应式的，可以根据浏览器的大小自适应最佳的显示效果&ndash;&gt;-->
+<!--</nav>-->
+<!--<div class="m-container-small m-padded-tb-massive">-->
+<!--    <div class="ui error message">-->
+<!--        <div class="ui container m-padded-tb-huge">-->
+<!--            <h1>404</h1>-->
+<!--            <h3>你要找的页面不存在</h3>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+<!--<br>-->
+<!--<br>-->
+<!--<br>-->
+<!--&lt;!&ndash;底部&ndash;&gt;-->
+<!--&lt;!&ndash;vertical表示把圆角的元素变为直角的&ndash;&gt;-->
+<!--<footer th:replace="_fragments :: footer">-->
+<!--</footer>-->
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Free 404 White for Iphone, Android & Smartphone Mobile Website Template | Home :: w3layouts</title>
+    <style type="text/css">
+        body{
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .wrap{
+            width:1000px;
+            margin:0 auto;
+        }
+        .logo{
+            width:430px;
+            position:absolute;
+            top:25%;
+            left:35%;
+        }
+        p a{
+            color:#eee;
+            font-size:13px;
+            margin-left:30px;
+            padding:5px;
+            background:#FF3366;
+            text-decoration:none;
+            -webkit-border-radius:.3em;
+            -moz-border-radius:.3em;
+            border-radius:.3em;
+        }
+        p a:hover{
+            color: #fff;
+        }
+        .footer{
+            position:absolute;
+            bottom:10px;
+            right:10px;
+            font-size:12px;
+            color:#aaa;
+        }
+        .footer a{
+            color:#666;
+            text-decoration:none;
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="logo">
+        <img src="../../static/images/404.png" th:src="@{/images/404.png}" alt="" />
+        <p><a th:href="@{/}">Go back to Home</a></p>
+    </div>
+</div>
+<div class="footer">
+    Design by - <a href="http://w3layouts.com">W3Layouts</a>
+</div>
+
+</body>
+</html>

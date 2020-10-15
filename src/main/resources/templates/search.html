@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments::head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+<!--ui 是采用semantic的标记，inverted表示反转,这里将本来是白色的填充变为黑色，
+segment表示片段，后面的m-padded-tb-mini是自己写的css样式，写在class中所以是类选择器-->
+<nav th:replace="_fragments :: menu(0)"
+     class="ui attached segment m-padded-tb-mini m-shadow-small m-bg animated fadeInDown">
+</nav>
+
+<!--中间内容-->
+<div class="m-container-small m-padded-tb-big m-div-bg animated fadeInUp">
+    <div class="ui container">
+        <!--header-->
+        <div class="ui top segment">
+            <!-- 把这个头分为两列   middle aligned 中间对齐分为两列-->
+            <div class="ui middle aligned two column grid">
+                <!-- 一列显示”博客“   -->
+                <div class="column">
+                    <h3 class="ui m-color-text header">搜索结果</h3>
+                </div>
+                <!-- 一列显示共多少篇博客   -->
+                <div class="right aligned column">
+                    共<span class="ui orange header m-inline-block m-text-spaced m-text-thin"
+                           th:text="${pageInfo.total}">14</span>篇
+                </div>
+            </div>
+        </div>
+        <!--  content-->
+        <div class="ui padded top attached segment">
+            <!-- vertical 会把框的横边隐藏，当有下一个框式用横线分割 -->
+            <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${pageInfo.list}">
+                <!-- mobile reversed stackable 适应手机端并将内容颠倒 -->
+                <div class="ui mobile reversed stackable middle aligned grid">
+                    <!--  文章标题和简介-->
+                    <div class="eleven wide column">
+                        <h3 class="ui header"><a href="#" target="_blank" class="m-black"
+                                                 th:href="@{blog/{id}(id=${blog.id})}" th:text="${blog.title}">你真的理解什么是财富自由吗？</a>
+                        </h3>
+                        <p class="m-text" th:text="|${blog.description}......|">
+                            正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…...</p>
+                        <div class="ui grid">
+
+                            <div class="eleven wide column">
+                                <!--  横向list-->
+                                <div class="ui mini horizontal link list">
+                                    <div class="item">
+                                        <!--  圆形的小图片-->
+                                        <img src="https://picsum.photos/id/1027/100/100"
+                                             th:src="@{${blog.user.avatar}}" alt=""
+                                             class="ui avatar image">
+                                        <div class="content"><a href="#" th:text="${blog.user.nickname}"
+                                                                class="header ">Wangxiao</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar alternate icon"></i><span
+                                            th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2020-08-06</span>
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i><span th:text="${blog.views}">1546</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="right aligned five wide column">
+                                <a href="" class="ui orange basic label m-padded-tiny m-text-thin"
+                                   th:text="${blog.type.name}">认知升级</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="five wide column">
+                        <a href="#" th:href="@{blog/{id}(id=${blog.id})}" target="_blank">
+                            <img src="https://picsum.photos/id/1027/800/450" th:src="@{${blog.firstPicture}}"
+                                 alt="" class="ui rounded image">
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--分页-->
+        <div class="ui bottom attached segment  stackable grid">
+            <div class="three wide column" align="center">
+                <a class="item" th:href="@{/(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}"
+                   th:unless="${pageInfo.isFirstPage}">上一页</a>
+            </div>
+
+            <div class="ten wide column" align="center">
+                <p><span th:text="${pageInfo.pageNum}"></span> / <span th:text="${pageInfo.pages}"></span></p>
+            </div>
+
+            <div class="three wide column" align="center">
+                <a class="item"
+                   th:href="@{/(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}"
+                   th:unless="${pageInfo.isLastPage}">下一页</a>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<br>
+<br>
+<div id="aplayer" class="aplayer m-span"  data-id="424369768" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+
+<!--底部-->
+<!--vertical表示把圆角的元素变为直角的-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-big">
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<!--在标签中加了menu toggle属性用来获取操作-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+</script>
+</body>
+</html>

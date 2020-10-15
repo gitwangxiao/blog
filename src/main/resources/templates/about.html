@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+
+<!--导航-->
+<nav th:replace="_fragments :: menu(8)" class="ui attached segment m-padded-tb-mini m-shadow-small m-bg">
+</nav>
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-big m-div-bg ">
+    <div class="ui container">
+
+        <div class="ui stackable grid">
+            <div class="eleven wide column animated fadeInLeftBig">
+                <div class="ui  segment">
+                    <img style="width:800px; height: 500px;" src="images/bg2.jpg" alt=""
+                         class="ui fluid rounded image ">
+                </div>
+            </div>
+            <div class="five wide column animated fadeInRightBig">
+                <div class="ui top attached segment">
+                    <div class="ui header">关于我</div>
+                </div>
+                <div class="ui attached segment">
+                    <p class="m-text">全栈才能生存</p>
+                    <p class="m-text">这是我的个人博客、记录学习进度和关于编程、写作、思考相关的任何内容....</p>
+                    <p class="m-text">npng的本意是“No pains, no gains”，是“一份耕耘一份收获”的逆式表达，是一句谚语。也寓意着我的每一篇博客都能让我有所收获，有所成长。</p>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui orange basic left pointing label">编程</div>
+                    <div class="ui orange basic left pointing label">游戏</div>
+                    <div class="ui orange basic left pointing label">思考</div>
+                    <div class="ui orange basic left pointing label">.....</div>
+                </div>
+                <div class="ui attached segment">
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">Java</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">JavaScript</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">Node</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">Spring</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">redis</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">MYSQL</div>
+                    <div class="ui teal basic left pointing label m-margin-tb-tiny">...</div>
+                </div>
+                <div class="ui bottom attached segment">
+                    <a href="#" th:href="@{https://github.com/gitwangxiao}" class="ui github circular icon button" data-content="https://github.com/gitwangxiao"
+                       data-position="bottom center"><i class="github icon"></i></a>
+                    <a class="ui wechat circular icon button" data-content="17879570610"
+                       data-position="bottom center"><i class="weixin icon"></i></a>
+                    <a href="#" th:href="@{http://wpa.qq.com/msgrd?v=3&uin=1187635759&site=qq&menu=yes}" class="ui qq circular icon button" data-content="点击发送消息"
+                       data-position="bottom center"><i class="qq icon"></i></a>
+                </div>
+
+                <div class="ui wechat-qr flowing popup transition hidden">
+                    <img src="../static/images/WeChat.jpeg" th:src="@{/images/WeChat.jpeg}" alt="" class="ui rounded image" style="width: 110px">
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+<br>
+<div id="aplayer" class="aplayer m-span"  data-id="424369768" data-server="netease" data-type="playlist" data-fixed="true" data-listfolded="true" data-order="random" data-theme="#F58EA8"></div>
+
+<!--底部footer-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-big ">
+
+</footer>
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.wechat').popup({
+        popup: $('.wechat-qr'),
+        position: 'bottom center'
+    });
+    $('.qq').popup();
+    $('.github').popup();
+
+</script>
+</body>
+</html>

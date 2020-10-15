@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:replace="admin/_fragments :: head(~{::title})">
+  <title>标签管理</title>
+</head>
+
+<body>
+
+  <!--头部导航-->
+  <nav th:replace="admin/_fragments :: menu(3)">
+
+  </nav>
+
+  <div class="ui attached pointing menu">
+    <div class="ui container">
+      <div class="right menu">
+        <a href="#" th:href="@{/admin/tags/input}" class=" item">添加</a>
+        <a href="#" th:href="@{/admin/tags}" class="blue active item">列表</a>
+      </div>
+    </div>
+  </div>
+
+
+  <!--中间内容-->
+  <div  class="m-container-small m-padded-tb-big m-div-bg">
+    <div class="ui container">
+
+      <div id="table-container">
+        <table  class="ui compact celled blue table">
+          <thead>
+          <tr>
+            <th></th>
+            <th>标签</th>
+            <th>操作</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="type, iterStat : ${pageInfo.list}">
+            <td th:text="${iterStat.count}">1</td>
+            <td th:text="${type.name}">摸鱼方法</td>
+            <td>
+<!--              @路径里面的括号用来获取参数给路径里的id-->
+              <a href="#" th:href="@{/admin/tags/{id}/input(id=${type.id})}" class="ui mini teal basic button">编辑</a>
+              <a href="#" th:href="@{/admin/tags/{id}/delete(id=${type.id})}" class="ui mini red basic button">删除</a>
+            </td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <th colspan="7" >
+                <div style="position: relative;">
+                    <div class="ui mini pagination menu" th:if="${pageInfo.pages>1}" >  <!--th:if="${pageInfo.pages>1}"表示如果后面的表达式成立才显示这个div元素   -->
+                        <div class="item" th:unless="${pageInfo.isFirstPage}"><a th:href="@{/admin/tags}">首页</a></div><!--th:unless="${pageInfo.isFirstPage}"表示除非后面的表达式成立，否则显示这个元素 -->
+                        <div class="item" th:unless="${pageInfo.isFirstPage}"><a th:href="@{/admin/tags(pagenum=${pageInfo.hasPreviousPage}?${pageInfo.prePage}:1)}" >上一页</a></div>
+                        <div class="item" th:unless="${pageInfo.isLastPage}" ><a th:href="@{/admin/tags(pagenum=${pageInfo.hasNextPage}?${pageInfo.nextPage}:${pageInfo.pages})}">下一页</a></div>
+                        <div class="item" th:unless="${pageInfo.isLastPage}" ><a th:href="@{/admin/tags(pagenum=${pageInfo.pages})}">尾页</a></div>
+                    </div>
+                    <div class=" m-padded-mini m-inline-block" style="position: absolute; width: 300px; left: 0;right: 0;margin:0 auto;height: 36px;">
+                        <p style="text-align: center;line-height: 36px;">当前第<span th:text="${pageInfo.pageNum}"></span>页，总<span th:text="${pageInfo.pages}"></span>页，共<span th:text="${pageInfo.total}"></span>条记录</p>
+                    </div>
+                    <a href="#"  th:href="@{/admin/tags/input}" class="ui mini right floated green basic button">新增</a>
+                </div>
+            </th>
+          </tr>
+          </tfoot>
+        </table>
+
+
+
+        <div class="ui success message" th:unless="${#strings.isEmpty(msg)}">
+          <i class="close icon"></i>
+          <div class="header">提示：</div>
+          <p th:text="${msg}">恭喜，操作成功！</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <!--底部footer-->
+  <footer th:replace="admin/_fragments :: footer">
+
+  </footer>
+
+  <th:block th:replace="admin/_fragments :: script">
+
+  </th:block>
+
+  <script>
+
+    $('.menu.toggle').click(function () {
+      $('.m-item').toggleClass('m-mobile-hide');
+    });
+
+    $('.ui.dropdown').dropdown({
+      on : 'hover'
+    });
+
+    //消息提示关闭初始化
+    $('.message .close')
+      .on('click', function () {
+        $(this)
+          .closest('.message')
+          .transition('fade');
+      });
+
+  </script>
+</body>
+</html>

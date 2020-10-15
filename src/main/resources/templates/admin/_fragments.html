@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <!--移动端预览-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title}">博客</title>
+    <link href="../static/images/favicon.ico" th:href="@{/images/x2.ico}" rel="icon" type="image/x-ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism2/prism.css}">
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css//me.css}">
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css" th:href="@{/lib/editormd/css/editormd.min.css}">
+</head>
+<body>
+<!--导航-->
+<!--ui 是采用semantic的标记，inverted表示反转,这里将本来是白色的填充变为黑色，
+segment表示片段，后面的m-padded-tb-mini是自己写的css样式，写在class中所以是类选择器-->
+<nav th:fragment="menu(n)" class="ui attached segment m-padded-tb-mini m-gradient">
+    <!--    container是semantic里面的一个容器组件，他是响应式的，可以根据浏览器的大小自适应最佳的显示效果-->
+    <div class="ui container ">
+        <!--secondary:在semantic中是灰色   stackable：可堆叠的，作用是适应手机端      -->
+        <div class="ui secondary stackable menu ">
+            <h2 class="ui m-color-text header item">后台管理</h2>
+            <a href="#" th:href="@{/admin/blogs}" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>博客管理</a>
+            <a href="#" th:href="@{/admin/types}" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类管理</a>
+            <a href="#" th:href="@{/admin/tags}" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签管理</a>
+<!--            <a href="#"  class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clock icon"></i>归档</a>-->
+<!--            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="book icon"></i>留言板</a>-->
+            <a href="#" th:href="@{/admin/friends}" class="m-item item m-mobile-hide" th:classappend="${n==6} ? 'active'"><i class="linkify alternate icon"></i>友链管理</a>
+            <div class="right m-item m-mobile-hide menu">
+                <div class="ui dropdown item">
+                    <div class="text">
+                        <img class="ui avatar image" th:src="@{${session.user.avatar}}" ><!--th:src="@{${session.user.avatar}}"  th:text="${session.user.nickname}"-->
+                        <span th:text="${session.user.nickname}">wangxiao</span>
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu" style="background: rgba(255,255,255,0.9)!important;">
+                        <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-opacity-tiny m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+
+<footer th:fragment="footer" class="ui inverted vertical segment m-margin-top animated fadeInUpBig ">
+    <!--    容器，保持和上面的部分对齐-->
+    <div class="ui center aligned container">
+        <div>
+            <p id="runtime_span" class="m-opacity-mini m-text-thin">网站已在风雨中运行:267天23小时45分40秒</p>
+            <span class="m-text-thin m-text-spaced m-opacity-mini">Copyright © 2020 Xwang</span>
+        </div>
+        <a href="http://beian.miit.gov.cn"  target="_blank" ><span class="m-opacity-mini m-white-text m-text-thin">陕ICP备2020014066号</span></a>
+    </div>
+</footer>
+
+<!--/*/<th:block th:fragment="script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/semantic-ui/2.2.10/semantic.min.js"></script>
+<script src="../static/lib/prism/prism.js" th:src="@{/lib/prism2/prism.js}"></script>
+<script src="../static/lib/tocbot/tocbot.js"  th:src="@{/lib/tocbot/tocbot.js}"></script>
+<script src="../static/lib/qrcode/qrcode.js"  th:src="@{/lib/qrcode/qrcode.js}"></script>
+<script src="//cdn.jsdelivr.net/npm/jquery.scrollto@2.1.2/jquery.scrollTo.min.js"></script>
+<script src="../static/lib/waypoints/jquery.waypoints.js"  th:src="@{/lib/waypoints/jquery.waypoints.js}"></script>
+<script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+
+<script>
+    show_runtime();
+    function show_runtime() {
+        window.setTimeout("show_runtime()", 1000);
+        X = new Date("08/31/2020 10:52:50");
+        Y = new Date();
+        T = (Y.getTime() - X.getTime());
+        M = 24 * 60 * 60 * 1000;
+        a = T / M;
+        A = Math.floor(a);
+        b = (a - A) * 24;
+        B = Math.floor(b);
+        c = (b - B) * 60;
+        C = Math.floor((b - B) * 60);
+        D = Math.floor((c - C) * 60);
+        document.getElementById("runtime_span").innerHTML = "网站已在风雨中运行：" + A + "天" + B + "小时" + C + "分" + D + "秒"
+    }
+</script>
+<!--/*/</th:block>/*/-->
+</body>
+</html>
