@@ -1,0 +1,4 @@
+2020-08-11 20:49:48.894  WARN 6316 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.wx]' package. Please check your configuration.
+2020-08-11 20:49:50.142  WARN 6316 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2020-08-11 20:59:37.024  WARN 4500 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.wx]' package. Please check your configuration.
+2020-08-11 20:59:37.689  WARN 4500 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)

@@ -1,0 +1,599 @@
+2020-09-21 14:39:39.452  INFO 12116 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12116 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-21 14:39:39.457 DEBUG 12116 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-21 14:39:39.457  INFO 12116 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-21 14:39:39.629  INFO 12116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-21 14:39:39.630  INFO 12116 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-21 14:39:44.007  INFO 12116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:39:44.018  INFO 12116 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-21 14:39:44.018  INFO 12116 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:39:44.021  INFO 12116 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-21 14:39:44.021  INFO 12116 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-21 14:39:44.021  INFO 12116 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-21 14:39:44.059  INFO 12116 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-21 14:39:44.185  INFO 12116 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:39:44.185  INFO 12116 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4555 ms
+2020-09-21 14:39:45.184  INFO 12116 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-21 14:39:45.291  INFO 12116 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:39:46.360  INFO 12116 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-21 14:39:46.402  INFO 12116 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:39:46.416  INFO 12116 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 7.936 seconds (JVM running for 9.932)
+2020-09-21 14:41:42.333  INFO 12116 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:41:42.333  INFO 12116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:41:42.343  INFO 12116 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-09-21 14:41:42.381  INFO 12116 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-21 14:41:42.448  INFO 12116 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-21 14:41:47.667 ERROR 12116 --- [http-nio-8080-exec-1] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Exception during pool initialization.
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.executeAutoCount(ExecutorUtil.java:166)
+	at com.github.pagehelper.PageInterceptor.count(PageInterceptor.java:157)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:100)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy104.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	at com.sun.proxy.$Proxy71.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+	at com.sun.proxy.$Proxy72.getIndexBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy73.getIndexBlog(Unknown Source)
+	at com.wx.service.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:85)
+	at com.wx.controller.IndexController.getIndexBlog(IndexController.java:57)
+	at com.wx.controller.IndexController$$FastClassBySpringCGLIB$$33e57b1c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.wx.controller.IndexController$$EnhancerBySpringCGLIB$$933d944c.getIndexBlog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
+	... 122 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 125 common frames omitted
+
+2020-09-21 14:41:47.676  INFO 12116 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:41:47.678 ERROR 12116 --- [http-nio-8080-exec-1] c.wx.handler.ControllerExceptionHandler  : Request URL:http://localhost:8080/, Exception:{}
+
+org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [D:\ideaProjects\blog\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve com.wx.dao.BlogDao.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:92)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440)
+	at com.sun.proxy.$Proxy71.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+	at com.sun.proxy.$Proxy72.getIndexBlog(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy73.getIndexBlog(Unknown Source)
+	at com.wx.service.BlogServiceImpl.getIndexBlog(BlogServiceImpl.java:85)
+	at com.wx.controller.IndexController.getIndexBlog(IndexController.java:57)
+	at com.wx.controller.IndexController$$FastClassBySpringCGLIB$$33e57b1c.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.invokeJoinpoint(CglibAopProxy.java:771)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:55)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.aspectj.AspectJAfterAdvice.invoke(AspectJAfterAdvice.java:47)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.adapter.MethodBeforeAdviceInterceptor.invoke(MethodBeforeAdviceInterceptor.java:56)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:95)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:749)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:691)
+	at com.wx.controller.IndexController$$EnhancerBySpringCGLIB$$933d944c.getIndexBlog(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [D:\ideaProjects\blog\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve com.wx.dao.BlogDao.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.apache.ibatis.exceptions.ExceptionFactory.wrapException(ExceptionFactory.java:30)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:149)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	... 89 common frames omitted
+Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:82)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.openConnection(SpringManagedTransaction.java:80)
+	at org.mybatis.spring.transaction.SpringManagedTransaction.getConnection(SpringManagedTransaction.java:67)
+	at org.apache.ibatis.executor.BaseExecutor.getConnection(BaseExecutor.java:337)
+	at org.apache.ibatis.executor.SimpleExecutor.prepareStatement(SimpleExecutor.java:86)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:62)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.executeAutoCount(ExecutorUtil.java:166)
+	at com.github.pagehelper.PageInterceptor.count(PageInterceptor.java:157)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:100)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy104.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	... 95 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:836)
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:456)
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:246)
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:197)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115)
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:112)
+	at org.springframework.jdbc.datasource.DataSourceUtils.fetchConnection(DataSourceUtils.java:158)
+	at org.springframework.jdbc.datasource.DataSourceUtils.doGetConnection(DataSourceUtils.java:116)
+	at org.springframework.jdbc.datasource.DataSourceUtils.getConnection(DataSourceUtils.java:79)
+	... 109 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105)
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151)
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:91)
+	at com.mysql.cj.NativeSession.connect(NativeSession.java:144)
+	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:956)
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:826)
+	... 122 common frames omitted
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:85)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at com.mysql.cj.protocol.StandardSocketFactory.connect(StandardSocketFactory.java:155)
+	at com.mysql.cj.protocol.a.NativeSocketConnection.connect(NativeSocketConnection.java:65)
+	... 125 common frames omitted
+
+2020-09-21 14:41:47.682  WARN 12116 --- [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.mybatis.spring.MyBatisSystemException: nested exception is org.apache.ibatis.exceptions.PersistenceException: 
+### Error querying database.  Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+### The error may exist in file [D:\ideaProjects\blog\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve com.wx.dao.BlogDao.getIndexBlog_COUNT
+### The error occurred while executing a query
+### Cause: org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.]
+2020-09-21 14:42:18.876  INFO 12116 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-21 14:42:18.886  INFO 12116 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-21 14:42:19.622  INFO 12116 --- [http-nio-8080-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-21 14:42:19.631 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-21 14:42:19.652 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-21 14:42:19.738 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-21 14:42:19.741 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.update_time desc LIMIT ?
+2020-09-21 14:42:19.742 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-21 14:42:19.750 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-21 14:42:19.757 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-21 14:42:19.757 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-21 14:42:19.762 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-21 14:42:19.765 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-21 14:42:19.766 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-21 14:42:19.803 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : <==      Total: 17
+2020-09-21 14:42:19.806 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-21 14:42:19.806 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-21 14:42:19.809 DEBUG 12116 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-21 14:42:19.809  INFO 12116 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: index
+2020-09-21 14:42:19.809  INFO 12116 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:42:24.780  INFO 12116 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-21 14:42:24.783 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-21 14:42:24.784 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-21 14:42:24.788 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 3
+2020-09-21 14:42:24.968 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-21 14:42:24.968 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-21 14:42:25.016 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-21 14:42:25.017 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-21 14:42:25.017 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-21 14:42:25.052 DEBUG 12116 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-21 14:42:25.055 DEBUG 12116 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:42:25.055 DEBUG 12116 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:42:25.057 DEBUG 12116 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:42:25.058  INFO 12116 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-21 14:42:25.058  INFO 12116 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:42:25.703  INFO 12116 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-21 14:42:25.707 DEBUG 12116 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:42:25.707 DEBUG 12116 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:42:25.709 DEBUG 12116 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:42:25.709  INFO 12116 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-21 14:42:25.709  INFO 12116 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:45:18.263  INFO 5912 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 5912 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-21 14:45:18.267 DEBUG 5912 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-21 14:45:18.267  INFO 5912 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-21 14:45:18.322  INFO 5912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-21 14:45:18.322  INFO 5912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-21 14:45:19.655  INFO 5912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-21 14:45:19.663  INFO 5912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-21 14:45:19.663  INFO 5912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-21 14:45:19.666  INFO 5912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-21 14:45:19.667  INFO 5912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-21 14:45:19.667  INFO 5912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-21 14:45:19.671  INFO 5912 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-21 14:45:19.787  INFO 5912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-21 14:45:19.788  INFO 5912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1465 ms
+2020-09-21 14:45:20.584  INFO 5912 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-21 14:45:20.681  INFO 5912 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-21 14:45:21.197  INFO 5912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-21 14:45:21.238  INFO 5912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-21 14:45:21.251  INFO 5912 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 3.589 seconds (JVM running for 4.969)
+2020-09-21 14:45:29.765  INFO 5912 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-21 14:45:29.765  INFO 5912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-21 14:45:29.774  INFO 5912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-09-21 14:45:29.810  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-21 14:45:29.870  INFO 5912 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-21 14:45:30.533  INFO 5912 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-21 14:45:30.539 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-21 14:45:30.558 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-21 14:45:30.575 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-21 14:45:30.580 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.update_time desc LIMIT ?
+2020-09-21 14:45:30.581 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-21 14:45:30.588 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-21 14:45:30.592 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-21 14:45:30.593 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-21 14:45:30.598 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-21 14:45:30.601 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-21 14:45:30.601 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-21 14:45:30.607 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : <==      Total: 17
+2020-09-21 14:45:30.610 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-21 14:45:30.610 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-21 14:45:30.613 DEBUG 5912 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-21 14:45:30.614  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: index
+2020-09-21 14:45:30.614  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:45:43.625  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/search', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toSearch', args=[1, spirng, {}]}
+2020-09-21 14:45:43.757 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.user_id = u.id AND b.type_id = t.id AND (b.title LIKE ? OR b.content LIKE ?) AND b.published = 1
+2020-09-21 14:45:43.758 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : ==> Parameters: %spirng%(String), %spirng%(String)
+2020-09-21 14:45:43.760 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : <==      Total: 1
+2020-09-21 14:45:43.760  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: search
+2020-09-21 14:45:43.760  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:45:57.096  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/search', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toSearch', args=[1, maven, {}]}
+2020-09-21 14:45:57.104 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.user_id = u.id AND b.type_id = t.id AND (b.title LIKE ? OR b.content LIKE ?) AND b.published = 1
+2020-09-21 14:45:57.104 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : ==> Parameters: %maven%(String), %maven%(String)
+2020-09-21 14:45:57.105 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog_COUNT   : <==      Total: 1
+2020-09-21 14:45:57.106 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog         : ==>  Preparing: select b.id,b.title,b.content,b.first_picture,b.update_time,b.views,b.description, u.avatar,u.nickname, t.name from t_blog b,t_user u,t_type t where b.user_id=u.id and b.type_id=t.id and (b.title like ? or b.content like ?) and b.published = 1 order by b.update_time desc LIMIT ?
+2020-09-21 14:45:57.106 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog         : ==> Parameters: %maven%(String), %maven%(String), 5(Integer)
+2020-09-21 14:45:57.110 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getSearchBlog         : <==      Total: 3
+2020-09-21 14:45:57.110  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: search
+2020-09-21 14:45:57.111  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:02.118  INFO 5912 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-21 14:46:02.119 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-21 14:46:02.120 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-21 14:46:02.123 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 3
+2020-09-21 14:46:02.154 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-21 14:46:02.155 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-21 14:46:02.308 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-21 14:46:02.309 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-21 14:46:02.310 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-21 14:46:02.355 DEBUG 5912 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-21 14:46:02.357 DEBUG 5912 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:02.358 DEBUG 5912 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:46:02.359 DEBUG 5912 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:46:02.359  INFO 5912 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-21 14:46:02.359  INFO 5912 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:03.372  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-21 14:46:03.376 DEBUG 5912 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:03.376 DEBUG 5912 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:46:03.377 DEBUG 5912 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:46:03.377  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-21 14:46:03.378  INFO 5912 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:07.597  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/27', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[27, {}]}
+2020-09-21 14:46:07.598 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-21 14:46:07.600 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 27(Long)
+2020-09-21 14:46:07.602 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 1
+2020-09-21 14:46:07.608 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-21 14:46:07.608 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 27(Long)
+2020-09-21 14:46:07.696 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-21 14:46:07.696 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-21 14:46:07.697 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 27(Long), 27(Long), 27(Long)
+2020-09-21 14:46:07.740 DEBUG 5912 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-21 14:46:07.741 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:07.742 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 27(Long), -1(Long)
+2020-09-21 14:46:07.761 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 1
+2020-09-21 14:46:07.764 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNotNull      : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:07.765 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNotNull      : ==> Parameters: 27(Long), 24(Long)
+2020-09-21 14:46:07.768 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNotNull      : <==      Total: 2
+2020-09-21 14:46:07.770 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:07.771 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : ==> Parameters: 27(Long), 26(Long)
+2020-09-21 14:46:07.772 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : <==      Total: 0
+2020-09-21 14:46:07.773 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:07.774 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : ==> Parameters: 27(Long), 25(Long)
+2020-09-21 14:46:07.780 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdAndReplayId          : <==      Total: 0
+2020-09-21 14:46:07.782  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-21 14:46:07.782  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:08.783  INFO 5912 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/27', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[27, {}]}
+2020-09-21 14:46:08.784 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:08.785 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 27(Long), -1(Long)
+2020-09-21 14:46:08.786 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 1
+2020-09-21 14:46:08.786 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNotNull      : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:08.787 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNotNull      : ==> Parameters: 27(Long), 24(Long)
+2020-09-21 14:46:08.788 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNotNull      : <==      Total: 2
+2020-09-21 14:46:08.789 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:08.789 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : ==> Parameters: 27(Long), 26(Long)
+2020-09-21 14:46:08.790 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : <==      Total: 0
+2020-09-21 14:46:08.791 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : ==>  Preparing: select c.id cid, nickname, email, content, avatar, create_time, blog_id, parent_comment_id, admin_comment from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:08.791 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : ==> Parameters: 27(Long), 25(Long)
+2020-09-21 14:46:08.793 DEBUG 5912 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdAndReplayId          : <==      Total: 0
+2020-09-21 14:46:08.795  INFO 5912 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-21 14:46:08.796  INFO 5912 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:14.414  INFO 5912 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-21 14:46:14.415 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-21 14:46:14.417 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-21 14:46:14.420 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 3
+2020-09-21 14:46:14.422 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-21 14:46:14.423 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-21 14:46:14.510 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-21 14:46:14.511 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-21 14:46:14.511 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-21 14:46:14.553 DEBUG 5912 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-21 14:46:14.553 DEBUG 5912 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:14.554 DEBUG 5912 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:46:14.555 DEBUG 5912 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:46:14.556  INFO 5912 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-21 14:46:14.556  INFO 5912 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:15.308  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-21 14:46:15.310 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-21 14:46:15.310 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-21 14:46:15.311 DEBUG 5912 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-21 14:46:15.311  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-21 14:46:15.311  INFO 5912 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:22.049  INFO 5912 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/3', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TypeShowController.toTypes', args=[3, 1, {}]}
+2020-09-21 14:46:22.057 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType_COUNT    : ==>  Preparing: SELECT count(0) FROM t_type t, t_blog b WHERE t.id = b.type_id AND b.published = 1
+2020-09-21 14:46:22.059 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType_COUNT    : ==> Parameters: 
+2020-09-21 14:46:22.059 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType_COUNT    : <==      Total: 1
+2020-09-21 14:46:22.059 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1 LIMIT ?
+2020-09-21 14:46:22.059 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 1000(Integer)
+2020-09-21 14:46:22.062 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-21 14:46:22.063 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogByTypeId       : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name from t_blog b, t_user u, t_type t where b.user_id = u.id and b.type_id = t.id and b.type_id = ? and b.published = 1
+2020-09-21 14:46:22.063 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogByTypeId       : ==> Parameters: 3(Long)
+2020-09-21 14:46:22.065 DEBUG 5912 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogByTypeId       : <==      Total: 2
+2020-09-21 14:46:22.067  INFO 5912 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Result: types
+2020-09-21 14:46:22.067  INFO 5912 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:31.628  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TypeShowController.toTypes', args=[1, 1, {}]}
+2020-09-21 14:46:31.631 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType_COUNT    : ==>  Preparing: SELECT count(0) FROM t_type t, t_blog b WHERE t.id = b.type_id AND b.published = 1
+2020-09-21 14:46:31.631 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType_COUNT    : ==> Parameters: 
+2020-09-21 14:46:31.632 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType_COUNT    : <==      Total: 1
+2020-09-21 14:46:31.632 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1 LIMIT ?
+2020-09-21 14:46:31.632 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 1000(Integer)
+2020-09-21 14:46:31.636 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-21 14:46:31.636 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTypeId       : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name from t_blog b, t_user u, t_type t where b.user_id = u.id and b.type_id = t.id and b.type_id = ? and b.published = 1
+2020-09-21 14:46:31.636 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTypeId       : ==> Parameters: 1(Long)
+2020-09-21 14:46:31.640 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTypeId       : <==      Total: 5
+2020-09-21 14:46:31.640  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: types
+2020-09-21 14:46:31.641  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-21 14:46:39.970  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/3', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[3, 1, {}]}
+2020-09-21 14:46:39.980 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-21 14:46:39.980 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-21 14:46:39.982 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-21 14:46:39.983 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-21 14:46:39.983 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-21 14:46:39.986 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : <==      Total: 17
+2020-09-21 14:46:39.986 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1
+2020-09-21 14:46:39.987 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 3(Long)
+2020-09-21 14:46:39.990 DEBUG 5912 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 3
+2020-09-21 14:46:39.991  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-21 14:46:39.991  INFO 5912 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------

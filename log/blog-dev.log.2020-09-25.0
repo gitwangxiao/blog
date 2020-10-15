@@ -1,0 +1,1011 @@
+2020-09-25 21:55:24.466  INFO 12248 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12248 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 21:55:24.471 DEBUG 12248 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 21:55:24.472  INFO 12248 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 21:55:24.575  INFO 12248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-25 21:55:24.576  INFO 12248 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-25 21:55:27.616  INFO 12248 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 21:55:27.627  INFO 12248 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 21:55:27.629  INFO 12248 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 21:55:27.632  INFO 12248 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 21:55:27.633  INFO 12248 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 21:55:27.633  INFO 12248 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 21:55:27.734  INFO 12248 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 21:55:27.888  INFO 12248 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 21:55:27.889  INFO 12248 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3313 ms
+2020-09-25 21:55:29.033  INFO 12248 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 21:55:29.148  INFO 12248 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 21:55:30.708  INFO 12248 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 21:55:30.754  INFO 12248 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 21:55:30.768  INFO 12248 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 7.278 seconds (JVM running for 9.446)
+2020-09-25 21:55:58.038  INFO 12248 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 21:55:58.039  INFO 12248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 21:55:58.050  INFO 12248 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 11 ms
+2020-09-25 21:55:58.113  INFO 12248 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-25 21:55:58.253  INFO 12248 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-25 21:55:59.279  INFO 12248 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-25 21:55:59.286 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 21:55:59.311 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 21:55:59.405 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 21:55:59.409 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.update_time desc LIMIT ?
+2020-09-25 21:55:59.409 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-25 21:55:59.419 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 21:55:59.426 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 21:55:59.426 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 21:55:59.431 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 21:55:59.435 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 21:55:59.435 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 21:55:59.471 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : <==      Total: 17
+2020-09-25 21:55:59.474 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 21:55:59.474 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 21:55:59.477 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 21:55:59.477  INFO 12248 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 21:55:59.478  INFO 12248 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:56:03.826  INFO 12248 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 21:56:03.834 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 21:56:03.834 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 21:56:03.838 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 3
+2020-09-25 21:56:04.026 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 21:56:04.026 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 21:56:04.079 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 21:56:04.081 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 21:56:04.081 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 21:56:04.149 DEBUG 12248 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 21:56:04.151 DEBUG 12248 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 21:56:04.151 DEBUG 12248 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 21:56:04.151 DEBUG 12248 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 21:56:04.152  INFO 12248 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 21:56:04.152  INFO 12248 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:56:18.534 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from blog.t_user where username=? and password = ?;
+2020-09-25 21:56:18.535 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : ==> Parameters: wangxiao(String), 6ddce92b1ed1d52c029165a3755337e0(String)
+2020-09-25 21:56:18.537 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2020-09-25 21:56:20.432 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 21:56:20.432 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 21:56:20.433 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 21:56:20.435 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 21:56:20.435 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 21:56:20.441 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 21:56:20.442 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 21:56:20.442 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 21:56:20.443 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 21:56:20.444 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 21:56:20.444 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 21:56:20.445 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 21:56:25.915 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 21:56:25.915 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 21:56:25.916 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 21:56:25.919 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?, ?
+2020-09-25 21:56:25.920 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Long), 10(Integer)
+2020-09-25 21:56:25.927 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 21:56:25.928 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 21:56:25.929 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 21:56:25.930 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 21:56:25.930 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 21:56:25.931 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 21:56:25.933 DEBUG 12248 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 21:56:28.861 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlog               : ==>  Preparing: select b.id, b.flag, b.title, b.content, b.type_id, b.first_picture, b.description, b.recommend, b.published, b.share_statement, b.appreciation, b.commentabled, b.tag_ids from blog.t_blog b where b.id = ?;
+2020-09-25 21:56:28.861 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlog               : ==> Parameters: 1(Long)
+2020-09-25 21:56:28.862 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlog               : <==      Total: 1
+2020-09-25 21:56:28.863 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 21:56:28.863 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 21:56:28.865 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 21:56:28.865 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 21:56:28.865 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 21:56:28.866 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 21:56:34.662  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 21:56:34.666 DEBUG 12248 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 21:56:34.667 DEBUG 12248 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 21:56:34.668 DEBUG 12248 --- [http-nio-8080-exec-5] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 21:56:34.668  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 21:56:34.668  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:56:50.788 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.TagDao.getTag                 : ==>  Preparing: select * from t_tag where id = ?
+2020-09-25 21:56:50.788 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.TagDao.getTag                 : ==> Parameters: 4(Long)
+2020-09-25 21:56:50.789 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.TagDao.getTag                 : <==      Total: 1
+2020-09-25 21:56:50.791 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.saveBlogAndTag        : ==>  Preparing: insert into t_blog_tags (tag_id, blog_id) values (?, ?);
+2020-09-25 21:56:50.792 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.saveBlogAndTag        : ==> Parameters: 4(Long), 1(Long)
+2020-09-25 21:56:50.895 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.saveBlogAndTag        : <==    Updates: 1
+2020-09-25 21:56:50.896 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateBlog            : ==>  Preparing: update t_blog set published = ?, flag = ?, title = ?, content = ?, type_id = ?, tag_ids = ?, first_picture = ?, description = ?, recommend = ?, share_statement = ?, appreciation = ?, commentabled = ?, update_time = ? where id = ?;
+2020-09-25 21:56:50.898 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateBlog            : ==> Parameters: true(Boolean), 原创(String), maven中静态资源的过滤(String), # maven中静态资源的过滤
+
+pom.xml文件中加入下面配置
+
+### 可以过滤java和resources文件夹里面所有的的.properties和.xml文件
+**directory：指定资源所在的目录，目录的路径是相对于pom.xml文件的
+includes：指定要包含哪些文件**
+**filtering标签中：false表示不过滤，true表示过滤**
+
+```java
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+```
+(String), 9(Long), 4(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584367888190&di=7855ff350e759b4b3de8c614978673b4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201612%2F07%2F20161207154722_Cmce5.thumb.400_0.gif(String), pom.xml文件中加入下面配置
+可以过滤java和resources文件夹里面所有的的.properties和.xml文件(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-09-25 21:56:50.79(Timestamp), 1(Long)
+2020-09-25 21:56:50.948 DEBUG 12248 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateBlog            : <==    Updates: 1
+2020-09-25 21:56:50.969 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 21:56:50.969 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 21:56:50.970 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 21:56:50.971 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 21:56:50.972 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 21:56:50.975 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 21:56:50.976 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 21:56:50.976 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 21:56:50.978 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 21:56:50.978 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 21:56:50.978 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 21:56:50.979 DEBUG 12248 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 21:56:58.182  INFO 12248 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 21:56:58.183 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 21:56:58.183 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 21:56:58.185 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 4
+2020-09-25 21:56:58.186 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 21:56:58.186 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 21:56:58.309 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 21:56:58.309 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 21:56:58.310 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 21:56:58.357 DEBUG 12248 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 21:56:58.358 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 21:56:58.358 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 21:56:58.359 DEBUG 12248 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 21:56:58.359  INFO 12248 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 21:56:58.359  INFO 12248 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:57:11.809  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-25 21:57:11.811 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 21:57:11.811 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 21:57:11.812 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 21:57:11.812 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.update_time desc LIMIT ?
+2020-09-25 21:57:11.813 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-25 21:57:11.819 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 21:57:11.820 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 21:57:11.820 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 21:57:11.821 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 21:57:11.822 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 21:57:11.822 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 21:57:11.824 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getIndexTag            : <==      Total: 18
+2020-09-25 21:57:11.825 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 21:57:11.825 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 21:57:11.827 DEBUG 12248 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 21:57:11.827  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 21:57:11.827  INFO 12248 --- [http-nio-8080-exec-5] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:57:16.376  INFO 12248 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/types/9', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TypeShowController.toTypes', args=[9, 1, {}]}
+2020-09-25 21:57:16.382 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType_COUNT    : ==>  Preparing: SELECT count(0) FROM t_type t, t_blog b WHERE t.id = b.type_id AND b.published = 1
+2020-09-25 21:57:16.383 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType_COUNT    : ==> Parameters: 
+2020-09-25 21:57:16.384 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType_COUNT    : <==      Total: 1
+2020-09-25 21:57:16.384 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1 LIMIT ?
+2020-09-25 21:57:16.384 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 1000(Integer)
+2020-09-25 21:57:16.386 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 21:57:16.387 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTypeId       : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name from t_blog b, t_user u, t_type t where b.user_id = u.id and b.type_id = t.id and b.type_id = ? and b.published = 1
+2020-09-25 21:57:16.387 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTypeId       : ==> Parameters: 9(Long)
+2020-09-25 21:57:16.389 DEBUG 12248 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTypeId       : <==      Total: 1
+2020-09-25 21:57:16.389  INFO 12248 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Result: types
+2020-09-25 21:57:16.389  INFO 12248 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 21:57:25.605 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlog               : ==>  Preparing: select b.id, b.flag, b.title, b.content, b.type_id, b.first_picture, b.description, b.recommend, b.published, b.share_statement, b.appreciation, b.commentabled, b.tag_ids from blog.t_blog b where b.id = ?;
+2020-09-25 21:57:25.606 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlog               : ==> Parameters: 1(Long)
+2020-09-25 21:57:25.607 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getBlog               : <==      Total: 1
+2020-09-25 21:57:25.608 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 21:57:25.609 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 21:57:25.611 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 21:57:25.611 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 21:57:25.612 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 21:57:25.613 DEBUG 12248 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:37:58.869  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12588 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 22:37:58.872 DEBUG 12588 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 22:37:58.872  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 22:37:58.919  INFO 12588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-25 22:37:58.919  INFO 12588 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-25 22:38:00.267  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 22:38:00.275  INFO 12588 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 22:38:00.275  INFO 12588 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 22:38:00.277  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 22:38:00.277  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 22:38:00.277  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 22:38:00.282  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 22:38:00.380  INFO 12588 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 22:38:00.381  INFO 12588 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1462 ms
+2020-09-25 22:38:01.134  INFO 12588 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:38:01.235  INFO 12588 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 22:38:01.699  INFO 12588 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 22:38:01.740  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 22:38:01.751  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 3.508 seconds (JVM running for 4.76)
+2020-09-25 22:38:13.196  INFO 12588 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 22:38:13.196  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 22:38:13.205  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2020-09-25 22:38:20.110  INFO 12588 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-25 22:38:20.754  INFO 12588 --- [http-nio-8080-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-25 22:38:20.774 DEBUG 12588 --- [http-nio-8080-exec-6] c.w.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from blog.t_user where username=? and password = ?;
+2020-09-25 22:38:20.798 DEBUG 12588 --- [http-nio-8080-exec-6] c.w.d.U.queryByUsernameAndPassword       : ==> Parameters: wangxiao(String), 6ddce92b1ed1d52c029165a3755337e0(String)
+2020-09-25 22:38:20.816 DEBUG 12588 --- [http-nio-8080-exec-6] c.w.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2020-09-25 22:38:22.844  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-25 22:38:22.888 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 22:38:22.888 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 22:38:22.892 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 22:38:22.893 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?
+2020-09-25 22:38:22.894 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-25 22:38:22.900 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 22:38:22.907 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 22:38:22.908 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 22:38:22.911 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 22:38:22.915 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 22:38:22.915 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 22:38:22.924 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getIndexTag            : <==      Total: 18
+2020-09-25 22:38:22.927 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 22:38:22.927 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 22:38:22.930 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 22:38:22.931  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 22:38:22.931  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:38:49.154  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[2, {}]}
+2020-09-25 22:38:49.163 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 22:38:49.163 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 22:38:49.164 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 22:38:49.165 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?, ?
+2020-09-25 22:38:49.165 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Long), 5(Integer)
+2020-09-25 22:38:49.168 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 22:38:49.169 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 22:38:49.169 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 22:38:49.172 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 22:38:49.172 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 22:38:49.172 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 22:38:49.178 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.TagDao.getIndexTag            : <==      Total: 18
+2020-09-25 22:38:49.178 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 22:38:49.179 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 22:38:49.181 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 22:38:49.181  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 22:38:49.181  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:39:06.013  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 22:39:06.015 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 22:39:06.016 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 22:39:06.020 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 4
+2020-09-25 22:39:06.062 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 22:39:06.062 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 22:39:06.219 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 22:39:06.221 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 22:39:06.221 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 22:39:06.281 DEBUG 12588 --- [http-nio-8080-exec-3] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 22:39:06.282 DEBUG 12588 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:39:06.283 DEBUG 12588 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:39:06.286 DEBUG 12588 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:39:06.286  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 22:39:06.286  INFO 12588 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:39:06.908  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 22:39:06.911 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:39:06.913 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:39:06.914 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:39:06.915  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 22:39:06.915  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:39:40.765 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 22:39:40.765 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 22:39:40.766 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 22:39:40.769 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 22:39:40.770 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 22:39:40.774 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 22:39:40.776 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:39:40.776 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:39:40.777 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:39:40.778 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:39:40.778 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:39:40.780 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:40:45.954 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 22:40:45.955 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 22:40:45.956 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 22:40:45.957 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 22:40:45.958 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 22:40:45.963 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 22:40:45.964 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:40:45.965 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:40:45.966 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:40:45.966 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:40:45.967 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:40:45.967 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:42:15.169  INFO 12588 --- [Thread-11] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:42:15.169  INFO 12588 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-09-25 22:42:15.178  INFO 12588 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-09-25 22:42:15.359  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12588 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 22:42:15.360 DEBUG 12588 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 22:42:15.360  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 22:42:15.690  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 22:42:15.690  INFO 12588 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 22:42:15.691  INFO 12588 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 22:42:15.691  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 22:42:15.691  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 22:42:15.691  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 22:42:15.691  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 22:42:15.724  INFO 12588 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 22:42:15.724  INFO 12588 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 362 ms
+2020-09-25 22:42:16.045  INFO 12588 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:42:16.089  INFO 12588 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 22:42:16.413  INFO 12588 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 22:42:16.425  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 22:42:16.429  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 1.11 seconds (JVM running for 259.439)
+2020-09-25 22:42:16.439  INFO 12588 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-25 22:42:18.728  INFO 12588 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 22:42:18.729  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 22:42:18.746  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-09-25 22:42:26.475  INFO 12588 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-09-25 22:42:26.506  INFO 12588 --- [http-nio-8080-exec-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-09-25 22:42:26.506 DEBUG 12588 --- [http-nio-8080-exec-5] c.w.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from blog.t_user where username=? and password = ?;
+2020-09-25 22:42:26.507 DEBUG 12588 --- [http-nio-8080-exec-5] c.w.d.U.queryByUsernameAndPassword       : ==> Parameters: wangxiao(String), 6ddce92b1ed1d52c029165a3755337e0(String)
+2020-09-25 22:42:26.508 DEBUG 12588 --- [http-nio-8080-exec-5] c.w.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2020-09-25 22:42:28.233 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: select count(0) from ( select b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name b.create_time from blog.t_blog b left outer join blog.t_type t on b.type_id = t.id order by b.create_time desc ) tmp_count
+2020-09-25 22:42:28.234 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 22:42:28.345 ERROR 12588 --- [http-nio-8080-exec-10] c.wx.handler.ControllerExceptionHandler  : Request URL:http://localhost:8080/admin/blogs, Exception:{}
+
+org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+### The error may exist in file [D:\ideaProjects\blog\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(0) from (  select b.id,                b.title,                b.update_time,                b.recommend,                b.published,                b.type_id,                t.id tid,                t.name                 b.create_time         from blog.t_blog b                  left outer join              blog.t_type t on b.type_id = t.id         order by b.create_time desc  ) tmp_count
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:235)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72)
+	at org.mybatis.spring.MyBatisExceptionTranslator.translateExceptionIfPossible(MyBatisExceptionTranslator.java:88)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:440)
+	at com.sun.proxy.$Proxy71.selectList(Unknown Source)
+	at org.mybatis.spring.SqlSessionTemplate.selectList(SqlSessionTemplate.java:223)
+	at org.apache.ibatis.binding.MapperMethod.executeForMany(MapperMethod.java:147)
+	at org.apache.ibatis.binding.MapperMethod.execute(MapperMethod.java:80)
+	at org.apache.ibatis.binding.MapperProxy$PlainMethodInvoker.invoke(MapperProxy.java:152)
+	at org.apache.ibatis.binding.MapperProxy.invoke(MapperProxy.java:85)
+	at com.sun.proxy.$Proxy112.getBlogList(Unknown Source)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:139)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy113.getBlogList(Unknown Source)
+	at com.wx.service.BlogServiceImpl.getBlogList(BlogServiceImpl.java:34)
+	at com.wx.controller.admin.BlogController.blogs(BlogController.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:878)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:792)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:626)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:733)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1589)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.execute(ClientPreparedStatement.java:370)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+	at sun.reflect.GeneratedMethodAccessor69.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.ibatis.logging.jdbc.PreparedStatementLogger.invoke(PreparedStatementLogger.java:59)
+	at com.sun.proxy.$Proxy107.execute(Unknown Source)
+	at org.apache.ibatis.executor.statement.PreparedStatementHandler.query(PreparedStatementHandler.java:64)
+	at org.apache.ibatis.executor.statement.RoutingStatementHandler.query(RoutingStatementHandler.java:79)
+	at org.apache.ibatis.executor.SimpleExecutor.doQuery(SimpleExecutor.java:63)
+	at org.apache.ibatis.executor.BaseExecutor.queryFromDatabase(BaseExecutor.java:325)
+	at org.apache.ibatis.executor.BaseExecutor.query(BaseExecutor.java:156)
+	at org.apache.ibatis.executor.CachingExecutor.query(CachingExecutor.java:109)
+	at com.github.pagehelper.util.ExecutorUtil.executeAutoCount(ExecutorUtil.java:166)
+	at com.github.pagehelper.PageInterceptor.count(PageInterceptor.java:157)
+	at com.github.pagehelper.PageInterceptor.intercept(PageInterceptor.java:100)
+	at org.apache.ibatis.plugin.Plugin.invoke(Plugin.java:61)
+	at com.sun.proxy.$Proxy105.query(Unknown Source)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:147)
+	at org.apache.ibatis.session.defaults.DefaultSqlSession.selectList(DefaultSqlSession.java:140)
+	at sun.reflect.GeneratedMethodAccessor91.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.mybatis.spring.SqlSessionTemplate$SqlSessionInterceptor.invoke(SqlSessionTemplate.java:426)
+	... 70 common frames omitted
+
+2020-09-25 22:42:28.346  WARN 12588 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.jdbc.BadSqlGrammarException: 
+### Error querying database.  Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+### The error may exist in file [D:\ideaProjects\blog\blog\target\classes\mapper\BlogMapper.xml]
+### The error may involve defaultParameterMap
+### The error occurred while setting parameters
+### SQL: select count(0) from (  select b.id,                b.title,                b.update_time,                b.recommend,                b.published,                b.type_id,                t.id tid,                t.name                 b.create_time         from blog.t_blog b                  left outer join              blog.t_type t on b.type_id = t.id         order by b.create_time desc  ) tmp_count
+### Cause: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10
+; bad SQL grammar []; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.create_time
+        from blog.t_blog b
+                 left outer join
+       ' at line 10]
+2020-09-25 22:43:35.543  INFO 12588 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:43:35.543  INFO 12588 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2020-09-25 22:43:35.553  INFO 12588 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2020-09-25 22:43:35.816  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12588 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 22:43:35.816 DEBUG 12588 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 22:43:35.816  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 22:43:36.207  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 22:43:36.208  INFO 12588 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 22:43:36.208  INFO 12588 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 22:43:36.208  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 22:43:36.208  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 22:43:36.208  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 22:43:36.209  INFO 12588 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 22:43:36.230  INFO 12588 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 22:43:36.230  INFO 12588 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 411 ms
+2020-09-25 22:43:36.552  INFO 12588 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:43:36.595  INFO 12588 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 22:43:36.931  INFO 12588 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 22:43:36.942  INFO 12588 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 22:43:36.946  INFO 12588 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 1.173 seconds (JVM running for 339.955)
+2020-09-25 22:43:36.948  INFO 12588 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-25 22:43:37.037  INFO 12588 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 22:43:37.038  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 22:43:37.051  INFO 12588 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-09-25 22:43:46.452  INFO 12588 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2020-09-25 22:43:46.481  INFO 12588 --- [http-nio-8080-exec-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2020-09-25 22:43:46.482 DEBUG 12588 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from blog.t_user where username=? and password = ?;
+2020-09-25 22:43:46.482 DEBUG 12588 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : ==> Parameters: wangxiao(String), 6ddce92b1ed1d52c029165a3755337e0(String)
+2020-09-25 22:43:46.483 DEBUG 12588 --- [http-nio-8080-exec-10] c.w.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2020-09-25 22:43:48.046 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 22:43:48.046 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 22:43:48.048 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 22:43:48.049 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name, b.create_time FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 22:43:48.050 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 22:43:48.053 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 22:43:48.056 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:43:48.056 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:43:48.059 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:43:48.062 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:43:48.062 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:43:48.064 DEBUG 12588 --- [http-nio-8080-exec-5] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:43:51.427 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : ==>  Preparing: select b.id, b.flag, b.title, b.content, b.type_id, b.first_picture, b.description, b.recommend, b.published, b.share_statement, b.appreciation, b.commentabled, b.tag_ids from blog.t_blog b where b.id = ?;
+2020-09-25 22:43:51.429 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : ==> Parameters: 1(Long)
+2020-09-25 22:43:51.431 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : <==      Total: 1
+2020-09-25 22:43:51.431 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:43:51.431 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:43:51.433 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:43:51.433 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:43:51.433 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:43:51.434 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:43:58.127 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getTag                 : ==>  Preparing: select * from t_tag where id = ?
+2020-09-25 22:43:58.128 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getTag                 : ==> Parameters: 4(Long)
+2020-09-25 22:43:58.129 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getTag                 : <==      Total: 1
+2020-09-25 22:43:58.129 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.saveBlogAndTag        : ==>  Preparing: insert into t_blog_tags (tag_id, blog_id) values (?, ?);
+2020-09-25 22:43:58.129 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.saveBlogAndTag        : ==> Parameters: 4(Long), 1(Long)
+2020-09-25 22:43:58.178 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.saveBlogAndTag        : <==    Updates: 1
+2020-09-25 22:43:58.179 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateBlog            : ==>  Preparing: update t_blog set published = ?, flag = ?, title = ?, content = ?, type_id = ?, tag_ids = ?, first_picture = ?, description = ?, recommend = ?, share_statement = ?, appreciation = ?, commentabled = ?, update_time = ? where id = ?;
+2020-09-25 22:43:58.182 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateBlog            : ==> Parameters: true(Boolean), 原创(String), maven中静态资源的过滤(String), # maven中静态资源的过滤
+
+pom.xml文件中加入下面配置
+
+### 可以过滤java和resources文件夹里面所有的的.properties和.xml文件
+**directory：指定资源所在的目录，目录的路径是相对于pom.xml文件的
+includes：指定要包含哪些文件**
+**filtering标签中：false表示不过滤，true表示过滤**
+
+```java
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+```
+(String), 9(Long), 4(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584367888190&di=7855ff350e759b4b3de8c614978673b4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201612%2F07%2F20161207154722_Cmce5.thumb.400_0.gif(String), pom.xml文件中加入下面配置
+可以过滤java和resources文件夹里面所有的的.properties和.xml文件(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-09-25 22:43:58.129(Timestamp), 1(Long)
+2020-09-25 22:43:58.225 DEBUG 12588 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.updateBlog            : <==    Updates: 1
+2020-09-25 22:43:58.243 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 22:43:58.243 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 22:43:58.244 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 22:43:58.245 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name, b.create_time FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 22:43:58.245 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 22:43:58.249 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 22:43:58.249 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:43:58.249 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:43:58.250 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:43:58.251 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:43:58.251 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:43:58.263 DEBUG 12588 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:44:06.247  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 22:44:06.255 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 22:44:06.255 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 22:44:06.258 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 5
+2020-09-25 22:44:06.262 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 22:44:06.262 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 22:44:06.399 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 22:44:06.402 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 22:44:06.403 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 22:44:06.528 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 22:44:06.528 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:44:06.529 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:44:06.529 DEBUG 12588 --- [http-nio-8080-exec-7] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:44:06.530  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 22:44:06.530  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:44:08.734  INFO 12588 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 22:44:08.739 DEBUG 12588 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:44:08.739 DEBUG 12588 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:44:08.740 DEBUG 12588 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:44:08.741  INFO 12588 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 22:44:08.741  INFO 12588 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:49:03.642  INFO 12588 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 22:49:03.643 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 22:49:03.643 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 22:49:03.645 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 5
+2020-09-25 22:49:03.646 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 22:49:03.647 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 22:49:03.694 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 22:49:03.695 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 22:49:03.695 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 22:49:03.741 DEBUG 12588 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 22:49:03.741 DEBUG 12588 --- [http-nio-8080-exec-9] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:49:03.742 DEBUG 12588 --- [http-nio-8080-exec-9] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:49:03.742 DEBUG 12588 --- [http-nio-8080-exec-9] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:49:03.742  INFO 12588 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 22:49:03.743  INFO 12588 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:49:04.678  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 22:49:04.679 DEBUG 12588 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:49:04.679 DEBUG 12588 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:49:04.680 DEBUG 12588 --- [http-nio-8080-exec-2] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:49:04.680  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 22:49:04.680  INFO 12588 --- [http-nio-8080-exec-2] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:49:20.300 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.BlogDao.getBlog               : ==>  Preparing: select b.id, b.flag, b.title, b.content, b.type_id, b.first_picture, b.description, b.recommend, b.published, b.share_statement, b.appreciation, b.commentabled, b.tag_ids from blog.t_blog b where b.id = ?;
+2020-09-25 22:49:20.301 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.BlogDao.getBlog               : ==> Parameters: 1(Long)
+2020-09-25 22:49:20.302 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.BlogDao.getBlog               : <==      Total: 1
+2020-09-25 22:49:20.302 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 22:49:20.303 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 22:49:20.304 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 22:49:20.304 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 22:49:20.304 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 22:49:20.305 DEBUG 12588 --- [http-nio-8080-exec-8] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 22:51:03.982  INFO 12588 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/-1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[-1, 1, {}]}
+2020-09-25 22:51:03.987 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-25 22:51:03.987 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-25 22:51:03.988 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-25 22:51:03.989 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-25 22:51:03.989 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-25 22:51:03.991 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 22:51:03.992 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1 order by b.create_time desc
+2020-09-25 22:51:03.992 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 4(Long)
+2020-09-25 22:51:03.995 DEBUG 12588 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 7
+2020-09-25 22:51:03.996  INFO 12588 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-25 22:51:03.996  INFO 12588 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:51:10.638  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/6', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[6, 1, {}]}
+2020-09-25 22:51:10.640 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-25 22:51:10.640 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-25 22:51:10.641 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-25 22:51:10.641 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-25 22:51:10.642 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-25 22:51:10.643 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 22:51:10.644 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1 order by b.create_time desc
+2020-09-25 22:51:10.645 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 6(Long)
+2020-09-25 22:51:10.649 DEBUG 12588 --- [http-nio-8080-exec-7] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 3
+2020-09-25 22:51:10.650  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-25 22:51:10.650  INFO 12588 --- [http-nio-8080-exec-7] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:53:14.772  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12740 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 22:53:14.776 DEBUG 12740 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 22:53:14.777  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 22:53:14.827  INFO 12740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-25 22:53:14.827  INFO 12740 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-25 22:53:16.122  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 22:53:16.131  INFO 12740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 22:53:16.132  INFO 12740 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 22:53:16.134  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 22:53:16.134  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 22:53:16.134  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 22:53:16.137  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 22:53:16.234  INFO 12740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 22:53:16.235  INFO 12740 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1408 ms
+2020-09-25 22:53:17.011  INFO 12740 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 22:53:17.125  INFO 12740 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 22:53:17.620  INFO 12740 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 22:53:17.666  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 22:53:17.679  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 3.511 seconds (JVM running for 4.795)
+2020-09-25 22:53:30.478  INFO 12740 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 22:53:30.478  INFO 12740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 22:53:30.488  INFO 12740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-09-25 22:53:30.518  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[1, {}]}
+2020-09-25 22:53:30.574  INFO 12740 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-25 22:53:31.238  INFO 12740 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-25 22:53:31.245 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 22:53:31.264 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 22:53:31.284 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 22:53:31.287 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?
+2020-09-25 22:53:31.288 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Integer)
+2020-09-25 22:53:31.294 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 22:53:31.300 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 22:53:31.301 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 22:53:31.305 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 22:53:31.308 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 22:53:31.308 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 22:53:31.313 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 22:53:31.317 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 22:53:31.317 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 22:53:31.320 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 22:53:31.320  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 22:53:31.321  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:53:42.297  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/6', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[6, 1, {}]}
+2020-09-25 22:53:42.305 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-25 22:53:42.306 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-25 22:53:42.307 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-25 22:53:42.308 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-25 22:53:42.308 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-25 22:53:42.313 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 22:53:42.314 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1 order by b.create_time desc
+2020-09-25 22:53:42.315 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 6(Long)
+2020-09-25 22:53:42.318 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 3
+2020-09-25 22:53:42.319  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-25 22:53:42.319  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:53:45.702  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 22:53:45.704 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 22:53:45.704 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 22:53:45.708 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 5
+2020-09-25 22:53:45.746 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 22:53:45.746 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 22:53:45.864 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 22:53:45.865 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 22:53:45.865 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 22:53:45.911 DEBUG 12740 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 22:53:45.913 DEBUG 12740 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:53:45.914 DEBUG 12740 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:53:45.915 DEBUG 12740 --- [http-nio-8080-exec-4] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:53:45.915  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 22:53:45.915  INFO 12740 --- [http-nio-8080-exec-4] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:53:46.500  INFO 12740 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 22:53:46.503 DEBUG 12740 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 22:53:46.503 DEBUG 12740 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 22:53:46.505 DEBUG 12740 --- [http-nio-8080-exec-8] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 22:53:46.505  INFO 12740 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 22:53:46.505  INFO 12740 --- [http-nio-8080-exec-8] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 22:54:18.458  INFO 12740 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[2, {}]}
+2020-09-25 22:54:18.466 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 22:54:18.466 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 22:54:18.467 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 22:54:18.468 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?, ?
+2020-09-25 22:54:18.468 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Long), 5(Integer)
+2020-09-25 22:54:18.472 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 22:54:18.472 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 22:54:18.473 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 22:54:18.476 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 22:54:18.476 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 22:54:18.477 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 22:54:18.481 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 22:54:18.482 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 22:54:18.482 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 22:54:18.484 DEBUG 12740 --- [http-nio-8080-exec-9] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 22:54:18.485  INFO 12740 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 22:54:18.485  INFO 12740 --- [http-nio-8080-exec-9] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:06:38.761  INFO 12740 --- [Thread-12] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-09-25 23:06:38.762  INFO 12740 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2020-09-25 23:06:38.772  INFO 12740 --- [Thread-12] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2020-09-25 23:06:39.012  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 12740 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 23:06:39.012 DEBUG 12740 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 23:06:39.012  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 23:06:39.459  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 23:06:39.459  INFO 12740 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 23:06:39.459  INFO 12740 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 23:06:39.459  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 23:06:39.460  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 23:06:39.460  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 23:06:39.460  INFO 12740 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 23:06:39.498  INFO 12740 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 23:06:39.498  INFO 12740 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 484 ms
+2020-09-25 23:06:39.823  INFO 12740 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 23:06:39.889  INFO 12740 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 23:06:40.279  INFO 12740 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 23:06:40.292  INFO 12740 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 23:06:40.296  INFO 12740 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 1.355 seconds (JVM running for 807.412)
+2020-09-25 23:06:40.297  INFO 12740 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2020-09-25 23:06:41.351  INFO 12740 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 23:06:41.353  INFO 12740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 23:06:41.370  INFO 12740 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 16 ms
+2020-09-25 23:06:41.375  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[2, {}]}
+2020-09-25 23:06:41.379  INFO 12740 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2020-09-25 23:06:41.414  INFO 12740 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2020-09-25 23:06:41.414 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 23:06:41.415 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 23:06:41.421 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 23:06:41.421 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.create_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?, ?
+2020-09-25 23:06:41.421 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Long), 5(Integer)
+2020-09-25 23:06:41.425 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 23:06:41.427 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 23:06:41.428 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 23:06:41.430 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 23:06:41.434 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 23:06:41.434 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 23:06:41.440 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 23:06:41.441 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 23:06:41.442 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 23:06:41.444 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 23:06:41.445  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 23:06:41.445  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:06:55.514  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 23:06:55.516 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 23:06:55.516 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 23:06:55.518 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 5
+2020-09-25 23:06:55.523 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 23:06:55.523 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 23:06:55.573 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 23:06:55.574 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 23:06:55.575 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 23:06:55.620 DEBUG 12740 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 23:06:55.621 DEBUG 12740 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 23:06:55.621 DEBUG 12740 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 23:06:55.622 DEBUG 12740 --- [http-nio-8080-exec-1] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 23:06:55.623  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 23:06:55.623  INFO 12740 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:06:56.562  INFO 12740 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 23:06:56.566 DEBUG 12740 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 23:06:56.566 DEBUG 12740 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 23:06:56.567 DEBUG 12740 --- [http-nio-8080-exec-10] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 23:06:56.567  INFO 12740 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 23:06:56.567  INFO 12740 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:26:32.597  INFO 9660 --- [restartedMain] com.wx.BlogApplication                   : Starting BlogApplication on DESKTOP-CRHINIV with PID 9660 (D:\ideaProjects\blog\blog\target\classes started by acer in D:\ideaProjects\blog\blog)
+2020-09-25 23:26:32.602 DEBUG 9660 --- [restartedMain] com.wx.BlogApplication                   : Running with Spring Boot v2.3.2.RELEASE, Spring v5.2.8.RELEASE
+2020-09-25 23:26:32.602  INFO 9660 --- [restartedMain] com.wx.BlogApplication                   : The following profiles are active: dev
+2020-09-25 23:26:32.674  INFO 9660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-09-25 23:26:32.674  INFO 9660 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-09-25 23:26:33.989  INFO 9660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-09-25 23:26:33.997  INFO 9660 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-09-25 23:26:33.998  INFO 9660 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.37]
+2020-09-25 23:26:34.000  INFO 9660 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2020-09-25 23:26:34.000  INFO 9660 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2020-09-25 23:26:34.000  INFO 9660 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2020-09-25 23:26:34.004  INFO 9660 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2020-09-25 23:26:34.107  INFO 9660 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-09-25 23:26:34.107  INFO 9660 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1433 ms
+2020-09-25 23:26:34.874  INFO 9660 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-09-25 23:26:34.974  INFO 9660 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-09-25 23:26:35.438  INFO 9660 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-09-25 23:26:35.488  INFO 9660 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-09-25 23:26:35.499  INFO 9660 --- [restartedMain] com.wx.BlogApplication                   : Started BlogApplication in 3.583 seconds (JVM running for 5.105)
+2020-09-25 23:27:50.194  INFO 9660 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-09-25 23:27:50.195  INFO 9660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-09-25 23:27:50.208  INFO 9660 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 13 ms
+2020-09-25 23:27:50.245  INFO 9660 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[2, {}]}
+2020-09-25 23:27:50.315  INFO 9660 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-09-25 23:27:51.147  INFO 9660 --- [http-nio-8080-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-09-25 23:27:51.156 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 23:27:51.176 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 23:27:51.195 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 23:27:51.200 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.create_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?, ?
+2020-09-25 23:27:51.200 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Long), 5(Integer)
+2020-09-25 23:27:51.209 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 23:27:51.215 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 23:27:51.215 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 23:27:51.221 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 23:27:51.225 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 23:27:51.225 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 23:27:51.231 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 23:27:51.234 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 23:27:51.234 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 23:27:51.239 DEBUG 9660 --- [http-nio-8080-exec-1] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 23:27:51.239  INFO 9660 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 23:27:51.239  INFO 9660 --- [http-nio-8080-exec-1] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:27:56.991  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.getIndexBlog', args=[2, {}]}
+2020-09-25 23:27:56.998 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==>  Preparing: SELECT count(0) FROM t_blog b, t_user u, t_type t WHERE b.type_id = t.id AND b.user_id = u.id AND b.published = 1
+2020-09-25 23:27:56.998 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog_COUNT    : ==> Parameters: 
+2020-09-25 23:27:57.000 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog_COUNT    : <==      Total: 1
+2020-09-25 23:27:57.001 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog          : ==>  Preparing: select b.id, b.title, b.description, b.views, b.update_time, b.create_time, b.first_picture, u.avatar, u.nickname, t.name, t.id tid from t_blog b, t_user u, t_type t where b.type_id = t.id and b.user_id = u.id and b.published=1 order by b.create_time desc LIMIT ?, ?
+2020-09-25 23:27:57.002 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog          : ==> Parameters: 5(Long), 5(Integer)
+2020-09-25 23:27:57.007 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getIndexBlog          : <==      Total: 5
+2020-09-25 23:27:57.008 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getIndexType          : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title, b.type_id from t_type t, t_blog b where t.id = b.type_id and b.published = 1
+2020-09-25 23:27:57.008 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getIndexType          : ==> Parameters: 
+2020-09-25 23:27:57.010 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getIndexType          : <==      Total: 10
+2020-09-25 23:27:57.011 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1
+2020-09-25 23:27:57.011 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 
+2020-09-25 23:27:57.014 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : <==      Total: 19
+2020-09-25 23:27:57.015 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getRecommendBlog      : ==>  Preparing: select b.id, b.title from t_blog b where recommend = 1 and published=1 order by views desc limit ?
+2020-09-25 23:27:57.015 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getRecommendBlog      : ==> Parameters: 8(Integer)
+2020-09-25 23:27:57.019 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getRecommendBlog      : <==      Total: 8
+2020-09-25 23:27:57.020  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: index
+2020-09-25 23:27:57.020  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:28:09.665 DEBUG 9660 --- [http-nio-8080-exec-2] c.w.d.U.queryByUsernameAndPassword       : ==>  Preparing: select * from blog.t_user where username=? and password = ?;
+2020-09-25 23:28:09.666 DEBUG 9660 --- [http-nio-8080-exec-2] c.w.d.U.queryByUsernameAndPassword       : ==> Parameters: wangxiao(String), 6ddce92b1ed1d52c029165a3755337e0(String)
+2020-09-25 23:28:09.668 DEBUG 9660 --- [http-nio-8080-exec-2] c.w.d.U.queryByUsernameAndPassword       : <==      Total: 1
+2020-09-25 23:28:11.564 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 23:28:11.564 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 23:28:11.565 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 23:28:11.567 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name, b.create_time FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 23:28:11.567 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 23:28:11.572 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 23:28:11.572 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 23:28:11.572 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 23:28:11.574 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 23:28:11.575 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 23:28:11.575 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 23:28:11.578 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 23:28:14.182 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : ==>  Preparing: select b.id, b.flag, b.title, b.content, b.type_id, b.first_picture, b.description, b.recommend, b.published, b.share_statement, b.appreciation, b.commentabled, b.tag_ids from blog.t_blog b where b.id = ?;
+2020-09-25 23:28:14.183 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : ==> Parameters: 1(Long)
+2020-09-25 23:28:14.184 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlog               : <==      Total: 1
+2020-09-25 23:28:14.185 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 23:28:14.186 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 23:28:14.187 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 23:28:14.187 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 23:28:14.188 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 23:28:14.189 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 23:28:56.816 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getTag                 : ==>  Preparing: select * from t_tag where id = ?
+2020-09-25 23:28:56.817 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getTag                 : ==> Parameters: 4(Long)
+2020-09-25 23:28:56.818 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.TagDao.getTag                 : <==      Total: 1
+2020-09-25 23:28:56.819 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.deleteBlogAndTag      : ==>  Preparing: delete from t_blog_tags where blog_id = ?
+2020-09-25 23:28:56.819 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.deleteBlogAndTag      : ==> Parameters: 1(Long)
+2020-09-25 23:28:56.941 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.deleteBlogAndTag      : <==    Updates: 5
+2020-09-25 23:28:56.942 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.saveBlogAndTag        : ==>  Preparing: insert into t_blog_tags (tag_id, blog_id) values (?, ?);
+2020-09-25 23:28:56.942 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.saveBlogAndTag        : ==> Parameters: 4(Long), 1(Long)
+2020-09-25 23:28:56.988 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.saveBlogAndTag        : <==    Updates: 1
+2020-09-25 23:28:56.988 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateBlog            : ==>  Preparing: update t_blog set published = ?, flag = ?, title = ?, content = ?, type_id = ?, tag_ids = ?, first_picture = ?, description = ?, recommend = ?, share_statement = ?, appreciation = ?, commentabled = ?, update_time = ? where id = ?;
+2020-09-25 23:28:56.990 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateBlog            : ==> Parameters: true(Boolean), 原创(String), maven中静态资源的过滤(String), # maven中静态资源的过滤
+
+pom.xml文件中加入下面配置
+
+### 可以过滤java和resources文件夹里面所有的的.properties和.xml文件
+**directory：指定资源所在的目录，目录的路径是相对于pom.xml文件的
+includes：指定要包含哪些文件**
+**filtering标签中：false表示不过滤，true表示过滤**
+
+```java
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                    <include>**/*.xml</include>
+                </includes>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
+    </build>
+```
+(String), 9(Long), 4(String), https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584367888190&di=7855ff350e759b4b3de8c614978673b4&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201612%2F07%2F20161207154722_Cmce5.thumb.400_0.gif(String), pom.xml文件中加入下面配置
+可以过滤java和resources文件夹里面所有的的.properties和.xml文件(String), true(Boolean), true(Boolean), true(Boolean), true(Boolean), 2020-09-25 23:28:56.818(Timestamp), 1(Long)
+2020-09-25 23:28:57.035 DEBUG 9660 --- [http-nio-8080-exec-4] com.wx.dao.BlogDao.updateBlog            : <==    Updates: 1
+2020-09-25 23:28:57.058 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList_COUNT     : ==>  Preparing: SELECT count(0) FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id
+2020-09-25 23:28:57.058 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList_COUNT     : ==> Parameters: 
+2020-09-25 23:28:57.059 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList_COUNT     : <==      Total: 1
+2020-09-25 23:28:57.061 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList           : ==>  Preparing: SELECT b.id, b.title, b.update_time, b.recommend, b.published, b.type_id, t.id tid, t.name, b.create_time FROM blog.t_blog b LEFT OUTER JOIN blog.t_type t ON b.type_id = t.id order by update_time desc LIMIT ?
+2020-09-25 23:28:57.061 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList           : ==> Parameters: 10(Integer)
+2020-09-25 23:28:57.064 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.BlogDao.getBlogList           : <==      Total: 10
+2020-09-25 23:28:57.065 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==>  Preparing: select * from t_type
+2020-09-25 23:28:57.065 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : ==> Parameters: 
+2020-09-25 23:28:57.066 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TypeDao.getAllType            : <==      Total: 13
+2020-09-25 23:28:57.067 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==>  Preparing: select * from t_tag
+2020-09-25 23:28:57.067 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : ==> Parameters: 
+2020-09-25 23:28:57.068 DEBUG 9660 --- [http-nio-8080-exec-2] com.wx.dao.TagDao.getAllTag              : <==      Total: 7
+2020-09-25 23:29:03.963  INFO 9660 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/blog/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.IndexController.toBlog', args=[1, {}]}
+2020-09-25 23:29:03.965 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : ==>  Preparing: select b.id, b.title, b.flag, b.content, b.appreciation, b.update_time, b.views, b.first_picture, b.commentabled, b.share_statement, u.nickname, u.avatar, t.id tagid, t.name tagname from t_blog b, t_tag t, t_blog_tags tb, t_user u where b.id = tb.blog_id and t.id = tb.tag_id and b.user_id = u.id and b.id = ?
+2020-09-25 23:29:03.965 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : ==> Parameters: 1(Long)
+2020-09-25 23:29:03.967 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getDetailedBlog       : <==      Total: 1
+2020-09-25 23:29:04.011 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : ==>  Preparing: update blog.t_blog b set b.views = b.views + 1 where b.id = ?
+2020-09-25 23:29:04.011 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : ==> Parameters: 1(Long)
+2020-09-25 23:29:04.147 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.updateViews           : <==    Updates: 1
+2020-09-25 23:29:04.148 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : ==>  Preparing: update blog.t_blog b set b.comment_count = ( select count(*) from blog.t_comment c where c.blog_id = ? and b.id = ? ) where b.id = ?
+2020-09-25 23:29:04.148 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : ==> Parameters: 1(Long), 1(Long), 1(Long)
+2020-09-25 23:29:04.183 DEBUG 9660 --- [http-nio-8080-exec-6] com.wx.dao.BlogDao.getCommentCountById   : <==    Updates: 1
+2020-09-25 23:29:04.184 DEBUG 9660 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 23:29:04.184 DEBUG 9660 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 23:29:04.185 DEBUG 9660 --- [http-nio-8080-exec-6] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 23:29:04.186  INFO 9660 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : Result: blog
+2020-09-25 23:29:04.186  INFO 9660 --- [http-nio-8080-exec-6] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:29:11.593  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/6', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[6, 1, {}]}
+2020-09-25 23:29:11.597 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-25 23:29:11.597 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-25 23:29:11.598 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-25 23:29:11.598 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-25 23:29:11.599 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-25 23:29:11.603 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : <==      Total: 15
+2020-09-25 23:29:11.604 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1 order by b.create_time desc
+2020-09-25 23:29:11.604 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 6(Long)
+2020-09-25 23:29:11.606 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 2
+2020-09-25 23:29:11.607  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-25 23:29:11.607  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:29:17.425  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/tags/4', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.TagShowController.types', args=[4, 1, {}]}
+2020-09-25 23:29:17.427 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==>  Preparing: SELECT count(0) FROM t_blog b, t_tag t, t_blog_tags bt WHERE b.id = bt.blog_id AND bt.tag_id = t.id AND b.published = 1
+2020-09-25 23:29:17.428 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : ==> Parameters: 
+2020-09-25 23:29:17.429 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag_COUNT      : <==      Total: 1
+2020-09-25 23:29:17.429 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==>  Preparing: select t.id tid, t.name, b.id bid, b.title from t_blog b, t_tag t, t_blog_tags bt where b.id = bt.blog_id and bt.tag_id = t.id and b.published = 1 LIMIT ?
+2020-09-25 23:29:17.430 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : ==> Parameters: 1000(Integer)
+2020-09-25 23:29:17.434 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.TagDao.getIndexTag            : <==      Total: 15
+2020-09-25 23:29:17.435 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==>  Preparing: select b.id, b.title, b.content, b.first_picture, b.update_time, b.views, b.description, u.avatar, u.nickname, t.name, t1.name tagname, t1.id tagid from t_blog b, t_user u, t_type t, t_tag t1, t_blog_tags tb where b.user_id = u.id and b.type_id = t.id and b.id=tb.blog_id and tb.tag_id = t1.id and t1.id = ? and b.published = 1 order by b.create_time desc
+2020-09-25 23:29:17.436 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : ==> Parameters: 4(Long)
+2020-09-25 23:29:17.441 DEBUG 9660 --- [http-nio-8080-exec-10] com.wx.dao.BlogDao.getBlogByTagId        : <==      Total: 4
+2020-09-25 23:29:17.442  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : Result: tags
+2020-09-25 23:29:17.442  INFO 9660 --- [http-nio-8080-exec-10] com.wx.aspect.LogAspect                  : ---------doAfter----------
+2020-09-25 23:29:27.640  INFO 9660 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Request : {url='http://localhost:8080/comments/1', ip='0:0:0:0:0:0:0:1', classMethod='com.wx.controller.CommentController.comments', args=[1, {}]}
+2020-09-25 23:29:27.645 DEBUG 9660 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : ==>  Preparing: select c.id cid,c.avatar,c.nickname,c.content,c.blog_id,c.admin_comment,c.create_time,c.email,c.parent_comment_id from t_comment c where c.blog_id = ? and c.parent_comment_id = ? order by c.create_time desc
+2020-09-25 23:29:27.645 DEBUG 9660 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : ==> Parameters: 1(Long), -1(Long)
+2020-09-25 23:29:27.646 DEBUG 9660 --- [http-nio-8080-exec-3] c.w.d.C.findByBlogIdParentIdNull         : <==      Total: 0
+2020-09-25 23:29:27.646  INFO 9660 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : Result: blog :: commentList
+2020-09-25 23:29:27.647  INFO 9660 --- [http-nio-8080-exec-3] com.wx.aspect.LogAspect                  : ---------doAfter----------
