@@ -49,9 +49,9 @@ public class Blog {
 
 
 //这个方法其实没有用，因为前端存进来的tagIds就是1，2，3形式的，也是这样识别的
-    public void init(){
-        this.tagIds = tagsToIds(this.getTags());
-    }
+//    public void init(){
+//        this.tagIds = tagsToIds(this.getTags());
+//    }
 
     //将tags集合转换为tagIds字符串形式：“1,2,3”,用于编辑博客时显示博客的tag
     private String tagsToIds(List<Tag> tags){
